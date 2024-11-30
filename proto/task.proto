@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "proto/;proto";
+
+message Task {
+  string id = 1;
+  string payload = 2;
+}
+
+service TaskService {
+  rpc SubmitTask (Task) returns (TaskStatus);
+}
+
+message TaskStatus {
+  string id = 1;
+  string status = 2;
+}
